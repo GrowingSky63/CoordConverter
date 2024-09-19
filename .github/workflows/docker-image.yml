@@ -30,6 +30,3 @@ jobs:
           context: .
           push: true
           tags: growingsky/coordconverter:latest
-
-      - name: Iniciar a imagem Docker
-        run: docker run --rm -p 5000:5000 -e GOOGLE_MAPS_JAVASCRIPT_KEY=${{ secrets.GOOGLE_MAPS_JAVASCRIPT_KEY }} growingsky/coordconverter:latest
