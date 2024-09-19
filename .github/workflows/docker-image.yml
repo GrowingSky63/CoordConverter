@@ -2,7 +2,7 @@ name: Build and Push Docker Image
 
 on:
   push:
-    branches: [ main ]  # Ou a branch que você preferir
+    branches: [ main ]
 
 jobs:
   build-and-push:
@@ -28,4 +28,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: growingsky/CoordConverter:latest
+          tags: growingsky/coordconverter:latest
