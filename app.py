@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, jsonify
-from pyproj import Proj
-import os, webbrowser
+from flask import Flask, render_template, jsonify, request
 from database import Database
+from pyproj import Proj
+import os
 
 app = Flask(__name__)
 
@@ -82,6 +82,5 @@ def history():
         return jsonify({'error': str(e)}), 500
 
 if __name__ == '__main__':
-        webbrowser.open_new('http://127.0.0.1:5000')
         app.run(debug=False)
 

@@ -25,6 +25,14 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Construir e enviar a imagem Docker
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          push: true
+          tags: growingsky/coordconverter:latest
+
+      - name: Testar a imagem Docker
         run: |
-            docker build --build-arg GOOGLE_MAPS_JAVASCRIPT_KEY="${{ secrets.GOOGLE_MAPS_JAVASCRIPT_KEY }}" \
-                         -t growingsky/coordconverter:latest .
+          docker run --rm \
+            -e GOOGLE_MAPS_JAVASCRIPT_KEY=${{ secrets.GOOGLE_MAPS_JAVASCRIPT_KEY }} \
+            growingsky/coordconverter:latest
