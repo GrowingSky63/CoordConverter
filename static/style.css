@@ -1,0 +1,131 @@
+body {
+    color: white;
+    font-family: Arial, sans-serif;
+    background-color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    padding: 20px;
+}
+
+#map {
+    width: 100%;
+    height: 76vh;
+}
+
+#output-container {
+    padding: 1.3em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.coord-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 1em;
+    padding: .3em;
+}
+
+.coord-info input,
+.coord-info select {
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, .5);
+    outline: none;
+    padding: .1em;
+    background-color: #333;
+    color: white;
+}
+
+.coord-info button {
+    background-color: #d2ff02;
+    border: none;
+    padding: .3em;
+    border-radius: .3em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.coord-info button:hover {
+    background-color: #c0e502; /* Cor ligeiramente mais escura ao passar o mouse */
+}
+
+.coord-info button:active {
+    background-color: #b0d002; /* Cor mais escura quando clicado */
+    transform: scale(0.95); /* Efeito de pressionado */
+}
+
+.coord-info tr {
+    display: flex;
+    justify-content: end;
+}
+
+.gms-coord {
+    width: 3em;
+}
+
+#coord_info_UTM_hemisferio,
+#coord_info_UTM_fuso {
+    width: 2em;
+}
+
+/* Estilos para a área sensível */
+#hover-area {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 10px; /* 10 pixels de largura */
+    height: 100%;
+    z-index: 999; /* Abaixo do menu de histórico */
+}
+
+/* Estilos para o menu de histórico */
+#history-menu {
+    position: fixed;
+    top: 0;
+    right: -15%; /* Escondido fora da tela */
+    width: 15%;
+    height: 100%;
+    background-color: #444;
+    font-size: 10pt;
+    overflow-y: auto;
+    transition: right 0.3s ease;
+    padding: 1em;
+    box-sizing: border-box;
+    z-index: 1000; /* Acima da área sensível */
+}
+
+#history-menu h2 {
+    margin-top: 0;
+}
+
+#history-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+#history-list li {
+    margin-bottom: 1em;
+    cursor: pointer;
+}
+
+#history-list li:hover {
+    text-decoration: underline;
+}
+
+/* Mostrar o menu ao passar o mouse sobre a área sensível ou o próprio menu */
+#hover-area:hover + #history-menu,
+#history-menu:hover {
+    right: 0; /* Move o menu para dentro da tela */
+}
+
+
+#hover-area {
+    background-color: rgba(255, 0, 0, 0.1); /* Vermelho transparente */
+}

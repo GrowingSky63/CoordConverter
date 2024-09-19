@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Conversor de Coordenadas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="map"></div>
+    <div id="output-container">
+        <div class="coord-info" id="coord_info_GMS">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <input type="text" class="gms-coord" id="coord_info_GMS_graus_lon">
+                            <label for="coord_info_GMS_graus_lon">°</label>
+                        </td>
+                        <td>
+                            <input type="text" class="gms-coord" id="coord_info_GMS_minuto_lon">
+                            <label for="coord_info_GMS_minuto_lon">"</label>
+                        </td>
+                        <td>
+                            <input type="text" class="gms-coord" id="coord_info_GMS_segundo_lon">
+                            <label for="coord_info_GMS_segundo_lon">'</label>
+                        </td>
+                        <td>
+                            <select name="LonQuad" class="gms-coord" id="coord_info_GMS_LonQuad">
+                                <option>W</option>
+                                <option>E</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="text" class="gms-coord" id="coord_info_GMS_graus_lat">
+                            <label for="coord_info_GMS_graus_lat">°</label>
+                        </td>
+                        <td>
+                            <input type="text" class="gms-coord" id="coord_info_GMS_minuto_lat">
+                            <label for="coord_info_GMS_minuto_lat">"</label>
+                        </td>
+                        <td>
+                            <input type="text" class="gms-coord" id="coord_info_GMS_segundo_lat">
+                            <label for="coord_info_GMS_segundo_lat">'</label>
+                        </td>
+                        <td>
+                            <select name="LatQuad" class="gms-coord" id="coord_info_GMS_LatQuad">
+                                <option>N</option>
+                                <option>S</option>
+                            </select>                            
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="coord-func-btns">
+                <button class="copy-btn" id="copy_btn_GMS">Copiar</button>
+                <button class="search-btn" id="search_btn_GMS">Pesquisar</button>
+            </div>
+        </div>
+        <div class="coord-info" id="coord_info_DEG">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="coord_info_DEG_lat">Latitude: </label>
+                            <input type="text" class="deg-coord" id="coord_info_DEG_lat">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="coord_info_DEG_lon">Longitude: </label>
+                            <input type="text" class="deg-coord" id="coord_info_DEG_lon">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="coord-func-btns">
+                <button class="copy-btn" id="copy_btn_DEG">Copiar</button>
+                <button class="search-btn" id="search_btn_DEG">Pesquisar</button>
+            </div>
+        </div>
+        <div class="coord-info" id="coord_info_UTM">
+            <table>
+                <tbody>
+                    <tr>
+                        <td>
+                            <label for="coord_info_UTM_x">X: </label>
+                            <input type="text" class="utm-coord" id="coord_info_UTM_x">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="coord_info_UTM_y">Y: </label>
+                            <input type="text" class="utm-coord" id="coord_info_UTM_y">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="coord_info_UTM_hemisferio">Hemisfério: </label>
+                            <input type="text" class="utm-coord" id="coord_info_UTM_hemisferio">
+                            <label for="coord_info_UTM_fuso">Fuso: </label>
+                            <input type="text" class="utm-coord" id="coord_info_UTM_fuso">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="coord-func-btns">
+                <button class="copy-btn" id="copy_btn_UTM">Copiar</button>
+                <button class="search-btn" id="search_btn_UTM">Pesquisar</button>
+            </div>
+        </div>
+    </div>
+    <div id="hover-area"></div>
+    <div id="history-menu">
+        <h2>Histórico de Coordenadas</h2>
+        <ul id="history-list"></ul>
+    </div>
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ api_key }}&callback=initMap" async defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.7.5/proj4.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
